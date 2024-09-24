@@ -20,7 +20,7 @@ module.exports = emailService;
 dbConnect().then(() => console.log("MongoDB Connected!"));
 
 // MIDDLEWARES
-const allowedOrigins = ["http://localhost:5173"]; // Adjust for production
+const allowedOrigins = ["*"]; // Adjust for production
 const corsOptions = {
   origin: allowedOrigins, // Only allow specific origins in production
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
@@ -40,7 +40,7 @@ app.use(
   })
 );
 
-app.use(express.static(path.join(__dirname, 'dist')));
+// app.use(express.static(path.join(__dirname, 'dist')));
 
 // ROUTES
 const allRoutes = require("./routes");
