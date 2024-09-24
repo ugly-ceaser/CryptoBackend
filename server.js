@@ -43,6 +43,9 @@ app.use(
 // app.use(express.static(path.join(__dirname, 'dist')));
 
 // ROUTES
+app.get("/health", (req, res) => {
+  res.status(200).json({ message: "Server is live!" });
+});
 const allRoutes = require("./routes");
 app.use("/api/v1", allRoutes);
 
